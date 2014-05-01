@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Bono+Norm 101 - 2014</title>
+
+        <meta name="description" content="Xinix Outing - 2014/03/28">
+        <meta name="author" content="Ganesha DM">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+            .inline {
+                border: 5px solid #fbb!important;
+                background-color: #ffb;
+                padding: 0 20px!important;
+                border-radius: 30px;
+                display: inline-block;
+            }
+
+            table.table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            table.table td,
+            table.table th
+            {
+                border: 1px solid #333;
+                padding: 0 .2rem;
+            }
+
+            table.table th {
+                background-color: #66f;
+                color: white;
+                font-weight: normal;
+            }
+
+            .reveal section img, .reveal section pre, table.table {
+                border: none;
+                box-shadow: 0 0 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>101</h1>
+                    <h3>BONO + NORM</h3>
+                    <p>
+                        <small>by <a href="http://twitter.com/reekoheek">@reekoheek</a> May 2014</small>
+                    </p>
+                </section>
+
+                <section>
+                    <p>
+                        &lt;void /&gt;
+                    </p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>BONO</h2>
+                        <p class="fragment">
+                            PHP framework to build enterprise-wise application
+                        </p>
+                        <p class="fragment">
+                            Better modularity
+                        </p>
+                        <p class="fragment">
+                            Rapid prototyping and scaffolding
+                        </p>
+                        <p class="fragment">
+                            Extends from Slim Framework - http://www.slimframework.com
+                        </p>
+                    </section>
+                    <section>
+                        <h2>NORM</h2>
+                        <p class="fragment">
+                            PHP ORM-like framework that is not ORM
+                        </p>
+                        <p class="fragment">
+                            No normalization no join just data
+                        </p>
+                        <p class="fragment">
+                            Inspired by NoSQL (Mongo)
+                        </p>
+                        <p class="fragment">
+                            Works for MongoDB, MySQL, Oracle, SQLite3
+                            <br>
+                            (contributions?)
+                        </p>
+                    </section>
+                    <section>
+                        <p>BONO for the process</p>
+                        <p>NORM for the data access</p>
+                    </section>
+                </section>
+                <!-- Example of nested vertical slides -->
+                <section>
+                    <section>
+                        <h2>Pre Installation</h2>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Node.JS</th>
+                                    <td>see http://nodejs.org</td>
+                                </tr>
+                                <tr>
+                                    <th>PAX</th>
+                                    <td>npm install -g xinix-pax</td>
+                                </tr>
+                                <tr>
+                                    <th>MongoDB</th>
+                                    <td>see http://docs.mongodb.org</td>
+                                </tr>
+                                <tr>
+                                    <th>MongoDB Client</th>
+                                    <td>pecl install mongo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Installation</h2>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Install archetype</th>
+                                    <td>
+                                        mkdir myproject <br>
+                                        cd myproject <br>
+                                        xpax init bono-arch</td>
+                                </tr>
+                                <tr>
+                                    <th>Run server</th>
+                                    <td>xpax serve</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <p>http://localhost:8000</p>
+                        <img src="./img/install-succeed.png" alt="">
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Routing</h2>
+                        <p>Add new URL endpoint for your web/app</p>
+                    </section>
+                    <section>
+                    <p>GET</p>
+                    <pre><code class="php">$app->get('/books/:id', function ($id) {
+    //Show book identified by $id
+});</code></pre>
+                    <p>POST</p>
+                    <pre><code class="php">$app->post('/books', function () {
+    //Create book
+});</code></pre>
+                    <p>PUT</p>
+                    <pre><code class="php">$app->put('/books/:id', function ($id) {
+    //Update book identified by $id
+});</code></pre>
+                    <p>DELETE</p>
+                    <pre><code class="php">$app->get('/books/:id', function ($id) {
+    //Show book identified by $id
+});</code></pre>
+                    </section>
+                    <section>
+                        <h3>Method Override</h3>
+                    <p><small>Unfortunately, modern browsers do not provide native support for HTTP PUT and DELETE requests. To work around this limitation, ensure your HTML form’s method attribute is "post", then add a method override parameter to your HTML form like this:</small></p>
+                    <pre><code>&lt;form action=&quot;/books/1&quot; method=&quot;post&quot;&gt;
+    ... other form fields here...
+    &lt;input type=&quot;hidden&quot; name=&quot;_METHOD&quot; value=&quot;PUT&quot;/&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Update Book&quot;/&gt;
+&lt;/form&gt;</code></pre>
+                    </section>
+                    <section>
+                    <h3>Route Parameters</h3>
+                    <pre><code>$app->get('/books/:one/:two', function ($one, $two) {
+    echo "The first paramter is " . $one;
+    echo "The second parameter is " . $two;
+});</code></pre>
+                </section>
+
+                <section>
+                    <h3>Optional Route Parameters</h3>
+                    <pre><code class="php">$app->get('/archive(/:year(/:month(/:day)))', function ($year = 2010, $month = 12, $day = 05) {
+    echo sprintf('%s-%s-%s', $year, $month, $day);
+});</code></pre>
+                    <ul>
+                        <li>/archive</li>
+                        <li>/archive/2010</li>
+                        <li>/archive/2010/12</li>
+                        <li>/archive/2010/12/05</li>
+                    </ul>
+                </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Providers</h2>
+                        <ul>
+                            <li>Steroid to Bono muscle</li>
+                            <li>Provide features that bono don't</li>
+                            <li>Norm attached to Bono as provider <code>Norm\Provider\NormProvider</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Configuration</h3>
+                        <pre><code class="php">return array(
+    ...
+    'bono.providers' => array(
+        '\\Norm\\Provider\\NormProvider' => array(
+            ...
+        ),
+        '\\App\\Provider\\AppProvider',
+        '\\Another\\Provider\\JustAnotherProvider' => null,
+    ),
+    ...
+);</code></pre>
+                    </section>
+                    <section>
+                        <h3>Create new Provider</h3>
+                        <pre><code class="php">// file: $PROJECT_PATH/src/App/Provider/AppProvider.php
+
+namespace App\Provider;
+
+use \Bono\Provider;
+
+class AppProvider extends Provider
+{
+    public function initialize()
+    {
+        $app = $this->app;
+
+        // you can do something here, such as:
+        // - create new route
+        // - initializing some boilerplate codes
+    }
+}</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Middlewares</h2>
+                        <ul>
+                            <li class="fragment">Onion layers for each request</li>
+                            <li class="fragment">Route function call is the last layer</li>
+                            <li class="fragment">It may inspect, analyze, or modify the application environment, request, and response before and/or after the Slim application is invoked</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Configuration</h3>
+                        <pre><code class="php">return array(
+    ...
+    'bono.middlewares' => array(
+        '\\Bono\\Middleware\\ControllerMiddleware' => array(
+            ...
+        ),
+        '\\Bono\\Middleware\\NotificationMiddleware',
+        '\\App\\Middleware\\MyMiddleware',
+    ),
+    ...
+);</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Create New Middleware</h3>
+                        <pre><code class="php">namespace App\Middleware;
+
+use \Slim\Middleware;
+
+class MyMiddleware extends Middleware
+{
+    public function call()
+    {
+        // Do something before route call
+
+        // Optionally call the next middleware
+        $this->next->call();
+
+        // Do something after route call
+    }
+}</code></pre>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2>Rapid Prototyping</h2>
+                        <p>Lets create single module that can do:</p>
+                        <ul>
+                            <li><strong>Search</strong> and list all data from collection</li>
+                            <li><strong>Create</strong> new instance of collection</li>
+                            <li><strong>Read</strong> an instance of collection</li>
+                            <li><strong>Update</strong> existing instance</li>
+                            <li><strong>Delete</strong> existing instance</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Define Schema</h3>
+                        <pre><code class="php">return array(
+    'bono.providers' => array(
+        '\\Norm\\Provider\\NormProvider' => array(
+            ...
+            'collections' => array(
+                'mapping' => array(
+                    'Book' => array( //-- module that I want to create
+                        'schema' => array(
+                            'title' => String::create('title')->filter('trim|required|unique:User,username'),
+                            'author' => Reference::create('author')->to('Author'),
+                            'publisher' => Reference::create('published')->to('Publisher', 'name'),
+                        ),
+                    ),
+                    'Author' => array(
+                        ...
+);</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Define Controller Route</h3>
+                        <pre><code class="php">return array(
+    'bono.middlewares' => array(
+        '\\Bono\\Middleware\\ControllerMiddleware' => array(
+            'default' => '\\Norm\\Controller\\NormController',
+            'mapping' => array(
+                '/book' => null, //-- controller for my module
+                '/author' => '\\App\\Controller\\CustomAuthorController',
+            ),
+        ),
+        ...</code></pre>
+                    </section>
+
+                    <section>
+                        <img src="./img/scrud.png" alt="">
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>NORM Query</h2>
+                        <p>Imagine that you have a bucket (collection) full of data and all you want to do just
+                        put new data, or get existing data and do whatever you want (update or delete)</p>
+                    </section>
+                    <section>
+                        <h3>Get collection</h3>
+                        <pre><code class="php">$myCollection = \Norm::factory('MyCollection');</code></pre>
+                    </section>
+                    <section>
+                        <h3>Create new instance</h3>
+                        <pre><code class="php">$entry = \Norm::factory('MyCollection')->newInstance;
+$entry->set(array(
+    'field_a' => 'Some data for A',
+    'field_b' => 'Some data for B',
+    ...
+))
+$entry->set('field_c', 'Append data for C');
+$entry['field_d'] = 'Append data for D';
+$entry->save();</code></pre>
+                    </section>
+                    <section>
+                        <h3>Find an instance and update</h3>
+                        <pre><code class="php">$entry = \Norm::factory('MyCollection')->findOne($id);
+$entry['field_d'] = 'Change the data';
+$entry->save();</code></pre>
+                    </section>
+                    <section>
+                        <h3>Find an instance and delete</h3>
+                        <pre><code class="php">$entry = \Norm::factory('MyCollection')->findOne($id);
+$entry->remove();</code></pre>
+                    </section>
+                    <section>
+                        <h3>Find some instances</h3>
+                        <pre><code class="php">$entries = \Norm::factory('MyCollection')->find(array(
+    'name!like' => 'some',
+    'age!lte' => 25
+));
+foreach ($entries as $entry) {
+    ...
+}</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Observer</h2>
+                        <p>Events for your data</p>
+                        <div>
+
+                            <div class="inline">Saving</div>
+                            <div class="inline">Saved</div>
+                        </div>
+                        <div>
+
+                            <div class="inline">Removing</div>
+                            <div class="inline">Removed</div>
+                        </div>
+                        <div>
+
+                            <div class="inline">Searching</div>
+                            <div class="inline">Searched</div>
+                        </div>
+
+                    </section>
+                    <section>
+                        <h3>Saving</h3>
+                        <p>Triggered before saving</p>
+                        <pre><code class="php">class Timestampable
+{
+    public function saving($model)
+    {
+        // if new instance
+        if (is_null($model['$id'])) {
+            // set created_time
+            $model['$created_time'] = $now;
+        } else {
+            // set modified_time
+            $model['$modified_time'] = $now;
+        }
+    }
+}</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Saved</h3>
+                        <p>Triggered after saved</p>
+                        <pre><code class="php">class Journalize
+{
+    public function saved($model)
+    {
+        // journal update
+    }
+}</code></pre>
+                    </section>
+                <section>
+                    <h3>Add observer to Collection</h3>
+                    <pre><code class="php">return array(
+    'bono.providers' => array(
+        '\\Norm\\Provider\\NormProvider' => array(
+            ...
+            'collections' => array(
+                'default' => array(
+                    'observers' => array(
+                        '\\Norm\\Observer\\Timestampable',
+                    ),
+                ),
+                'mapping' => array(
+                    'Book' => array(
+                        'observers' => array(
+                            '\\App\\Observer\\Journalize' => array(
+                                // you can provide configuration
+                                // option for the observer
+                            ),
+                        ),
+                        'schema' => array(
+                            ...</code></pre>
+                </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Features</h2>
+                        <p>Many thanks to opensource</p>
+                    </section>
+                    <section>
+
+                        <h3>Inherited Features</h3>
+                        <h4>(Slim Framework)</h4>
+                        <ul>
+                            <li>Routing</li>
+                            <li>Template rendering</li>
+                            <li>Flash messages</li>
+                            <li>Secure cookies with AES-256 encryption</li>
+                            <li>HTTP caching (ETag)</li>
+                            <li>Loggin with custom log writers</li>
+                            <li>Error handling and debugging</li>
+                            <li>Middleware and hook architecture</li>
+                            <li>Simple configuration</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Inherited Features</h3>
+                        <h4>(Composer)</h4>
+                        <ul>
+                            <li>PSR-0 autoloader</li>
+                            <li>Modularity</li>
+                            <li>Dependency management</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Bono Features</h3>
+                        <ul>
+                            <li>Command Line Interface</li>
+                            <li>Layouted Template</li>
+                            <li>Themes</li>
+                            <li>Filters instead of hooks</li>
+                            <li>Environment-wise configuration</li>
+                            <li>Separation of sub app as provider</li>
+                            <li>Controller mechanism</li>
+                            <li>Content negotiator</li>
+                            <li>Norm (data access)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Norm Features</h3>
+                        <ul>
+                            <li>Simple data access</li>
+                            <li>No SQL</li>
+                            <li>Observer</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Another contributions</h3>
+                        <ul>
+                            <li>Bono Blade (thanks to krisanalfa)</li>
+                            <li>OCI driver of Norm (thanks to apriantopramana)</li>
+                            <li>Bono Auth (thanks to reekoheek)</li>
+                            <li class="fragment">next big thing! (maybe you?)</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Showcases</h2>
+                    <ul>
+                        <li>Viper</li>
+                        <li>account.dev.xinix.co.id</li>
+                        <li>ci.dev.xinix.co.id</li>
+                        <li>tig.dev.xinix.co.id</li>
+                        <li>mine.dev.xinix.co.id</li>
+                        <li>domain.dev.xinix.co.id</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>References</h2>
+                    <p><a href="https://github.com/xinix-technology/bono">https://github.com/xinix-technology/bono</a></p>
+                    <p><a href="https://github.com/xinix-technology/norm">https://github.com/xinix-technology/norm</a></p>
+                    <p><a href="http://docs.slimframework.com">http://docs.slimframework.com</a></p>
+                    <p><a href="http://getcomposer.org">http://getcomposer.org</a></p>
+                </section>
+
+                <section>
+                    <h1>
+                        Thank you
+                    </h1>
+                    <h4>Questions?</h4>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
